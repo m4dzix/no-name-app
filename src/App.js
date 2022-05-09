@@ -1,7 +1,14 @@
 import Navigation from "./common/Navigation";
+import Background from "./common/Background";
 
-function App() {
-  return <Navigation />;
-}
+const App = () => {
+  return (
+    <>
+      {" "}
+      <Background />
+      <Navigation />
+    </>
+  );
+};
 
 export default App;

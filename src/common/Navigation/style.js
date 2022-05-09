@@ -6,6 +6,10 @@ export const Nav = styled.nav`
   align-items: center;
   justify-content: space-between;
   padding: 30px;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100vw;
 `;
 export const Logo = styled.img`
   max-width: 192px;
