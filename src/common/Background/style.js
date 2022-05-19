@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import background from "../../Assets/background1.jpeg";
+import background from "../../Assets/background2.jpeg";
 
 export const Container = styled.div`
   background-image: url(${background});
@@ -9,4 +9,5 @@ export const Container = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   z-index: -1;
+  text-align: center;
 `;
