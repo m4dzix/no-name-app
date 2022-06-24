@@ -1,12 +1,15 @@
 {
   "files": {
-    "main.js": "/static/js/main.c0fc1e1a.js",
+    "main.js": "/static/js/main.97a8dbb2.js",
     "static/js/787.40458ac6.chunk.js": "/static/js/787.40458ac6.chunk.js",
+    "static/media/background2.jpeg": "/static/media/background2.3fced5bc750572e801e3.jpeg",
+    "static/media/Tukan_bay.png": "/static/media/Tukan_bay.80721de221bcdf1a6ac3.png",
+    "static/media/logo.png": "/static/media/logo.5a64f4773fbb1b37b37c.png",
     "index.html": "/index.html",
-    "main.c0fc1e1a.js.map": "/static/js/main.c0fc1e1a.js.map",
+    "main.97a8dbb2.js.map": "/static/js/main.97a8dbb2.js.map",
     "787.40458ac6.chunk.js.map": "/static/js/787.40458ac6.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.c0fc1e1a.js"
+    "static/js/main.97a8dbb2.js"
   ]
 }
