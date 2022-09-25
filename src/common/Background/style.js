@@ -11,3 +11,10 @@ export const Container = styled.div`
   z-index: -1;
   text-align: center;
 `;
+export const ClosePopup = styled.button`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+`;

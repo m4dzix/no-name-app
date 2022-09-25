@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import {
   CheckInBox,
   Text,
@@ -14,20 +14,34 @@ import {
   StyledPlus,
   StyledMinus,
 } from "./style.js";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  incrementRoom,
+  decrementRoom,
+  toggleHideRoomField,
+  incrementAdult,
+  decrementAdult,
+  toggleHideAdultField,
+  incrementChild,
+  decrementChld,
+  toggleHideChildField,
+  selectRoomValue,
+  selectAdultValue,
+  selectChildValue,
+  selectHideRoomField,
+  selectHideAdultField,
+  selectHideChildField,
+} from "./counterSlice.js";
 
 const ChooseField = () => {
-  const [room, setRoom] = useState(1);
-  const [adult, setAdult] = useState(1);
-  const [child, setChild] = useState(0);
+  const dispatch = useDispatch();
+  const roomValue = useSelector(selectRoomValue);
+  const adultValue = useSelector(selectAdultValue);
+  const childValue = useSelector(selectChildValue);
+  const isHideRoomField = useSelector(selectHideRoomField);
+  const isHideAdultField = useSelector(selectHideAdultField);
+  const isHideChildField = useSelector(selectHideChildField);
 
-  const [activeRoom, setActiveRoom] = useState(false);
-  const [activeCalendar, setActiveCalendar] = useState(false);
-  const [activeAdult, setActiveAdult] = useState(false);
-  const [activeChild, setActiveChild] = useState(false);
-
-  const increase = (setCounter, counter) => setCounter(counter + 1);
-  const decrease = (setCounter, counter) => setCounter(counter - 1);
-  const toggleActive = (active, setActive) => () => setActive(!active);
   return (
     <CheckInBox>
       <Text>Book your stay</Text>
@@ -35,23 +49,26 @@ const ChooseField = () => {
         <Item>
           I want
           <Box>
-            <StyledSpan>{room}</StyledSpan> {room <= 1 ? "Room" : "Rooms"}{" "}
+            <StyledSpan>{roomValue}</StyledSpan>{" "}
+            {roomValue <= 1 ? "Room" : "Rooms"}{" "}
             <Arrow
               role="button"
-              onClick={toggleActive(activeRoom, setActiveRoom)}
+              onClick={() => {
+                dispatch(toggleHideRoomField());
+              }}
             />
-            <Popup activeClass={activeRoom}>
-              <Number>{room}</Number>
-              {room <= 1 ? "Room" : "Rooms"}{" "}
+            <Popup activeClass={isHideRoomField}>
+              <Number>{roomValue}</Number>
+              {roomValue <= 1 ? "Room" : "Rooms"}{" "}
               <CounterButton
-                disabled={room === 20}
-                onClick={() => increase(setRoom, room)}
+                disabled={roomValue === 20}
+                onClick={() => dispatch(incrementRoom())}
               >
                 <StyledPlus />
               </CounterButton>
               <CounterButton
-                disabled={room === 0}
-                onClick={() => decrease(setRoom, room)}
+                disabled={roomValue === 0}
+                onClick={() => dispatch(decrementRoom())}
               >
                 <StyledMinus />
               </CounterButton>
@@ -64,30 +81,33 @@ const ChooseField = () => {
             <StyledSpan>May 19</StyledSpan>
             <StyledSpan>-</StyledSpan>
             <StyledSpan>May 20</StyledSpan>
-            <Arrow onClick={toggleActive(activeCalendar, setActiveCalendar)} />
-            <Popup activeClass={activeCalendar}></Popup>
+            {/* <Arrow onClick={toggleActive(activeCalendar, setActiveCalendar)} />
+            <Popup activeClass={activeCalendar}></Popup> */}
           </Box>
         </Item>
         <Item>
           for
           <Box>
-            <StyledSpan>{adult}</StyledSpan>
-            {adult <= 1 ? "Adult" : "Adults"}
+            <StyledSpan>{adultValue}</StyledSpan>
+            {adultValue <= 1 ? "Adult" : "Adults"}
             <Arrow
               role="button"
-              onClick={toggleActive(activeAdult, setActiveAdult)}
+              onClick={() => {
+                dispatch(toggleHideAdultField());
+              }}
             />
-            <Popup activeClass={activeAdult}>
-              <Number>{adult}</Number> {adult <= 1 ? "Adult" : "Adults"}{" "}
+            <Popup activeClass={isHideAdultField}>
+              <Number>{adultValue}</Number>{" "}
+              {adultValue <= 1 ? "Adult" : "Adults"}{" "}
               <CounterButton
-                disabled={adult === 20}
-                onClick={() => increase(setAdult, adult)}
+                disabled={adultValue === 20}
+                onClick={() => dispatch(incrementAdult())}
               >
                 <StyledPlus />
               </CounterButton>
               <CounterButton
-                disabled={adult === 0}
-                onClick={() => decrease(setAdult, adult)}
+                disabled={adultValue === 0}
+                onClick={() => dispatch(decrementAdult())}
               >
                 {" "}
                 <StyledMinus />
@@ -96,21 +116,26 @@ const ChooseField = () => {
           </Box>
           <StyledSpan>•</StyledSpan>
           <Box>
-            <StyledSpan>{child}</StyledSpan>
-            {child <= 1 ? "Children" : "Childrens"}
-            <Arrow onClick={toggleActive(activeChild, setActiveChild)} />
-            <Popup activeClass={activeChild}>
+            <StyledSpan>{childValue}</StyledSpan>
+            {childValue <= 1 ? "Children" : "Childrens"}
+            <Arrow
+              onClick={() => {
+                dispatch(toggleHideChildField());
+              }}
+            />
+            <Popup activeClass={isHideChildField}>
               {" "}
-              <Number>{child}</Number> {child <= 1 ? "Children" : "Childrens"}{" "}
+              <Number>{childValue}</Number>{" "}
+              {childValue <= 1 ? "Children" : "Childrens"}{" "}
               <CounterButton
-                disabled={child === 20}
-                onClick={() => increase(setChild, child)}
+                disabled={childValue === 20}
+                onClick={() => dispatch(incrementChild())}
               >
                 <StyledPlus />
               </CounterButton>
               <CounterButton
-                disabled={child === 0}
-                onClick={() => decrease(setChild, child)}
+                disabled={childValue === 0}
+                onClick={() => dispatch(decrementChld())}
               >
                 {" "}
                 <StyledMinus />
