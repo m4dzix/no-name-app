@@ -66,9 +66,17 @@ export const StyledButton = styled.button`
   color: white;
   background-color: #00a4aa;
   border: 1px solid #00a4aa;
+  border-radius: 4px;
   font-size: 18px;
   text-shadow: 0.5px 0.5px black;
   text-transform: uppercase;
+  ${({ datePickerButton }) =>
+    datePickerButton &&
+    css`
+      padding: 5px 15px;
+      font-size: 18px;
+      font-weight: 400;
+    `}
 `;
 
 export const Popup = styled.div`
@@ -130,4 +138,8 @@ export const StyledPlus = styled(Plus)`
 `;
 export const StyledMinus = styled(Minus)`
   ${StyledCounter}
+`;
+export const DatePickerWrapper = styled.div`
+  position: absolute;
+  bottom: 0;
 `;

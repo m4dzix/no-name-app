@@ -1,4 +1,8 @@
-// import { useState } from "react";
+import React from "react";
+import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { format } from "date-fns";
 import {
   CheckInBox,
   Text,
@@ -13,6 +17,7 @@ import {
   CounterButton,
   StyledPlus,
   StyledMinus,
+  DatePickerWrapper,
 } from "./style.js";
 import { useSelector, useDispatch } from "react-redux";
 import {
@@ -41,6 +46,28 @@ const ChooseField = () => {
   const isHideRoomField = useSelector(selectHideRoomField);
   const isHideAdultField = useSelector(selectHideAdultField);
   const isHideChildField = useSelector(selectHideChildField);
+
+  const [startDate, setStartDate] = useState(new Date());
+  const [isStartOpen, setIsStartOpen] = useState(false);
+  const handleStartChange = (e) => {
+    setIsStartOpen(!isStartOpen);
+    setStartDate(e);
+  };
+  const handleStartClick = (e) => {
+    e.preventDefault();
+    setIsStartOpen(!isStartOpen);
+  };
+
+  const [endDate, setEndDate] = useState(new Date());
+  const [isEndOpen, setIsEndOpen] = useState(false);
+  const handleEndChange = (e) => {
+    setIsEndOpen(!isEndOpen);
+    setEndDate(e);
+  };
+  const handleEndClick = (e) => {
+    e.preventDefault();
+    setIsEndOpen(!isEndOpen);
+  };
 
   return (
     <CheckInBox>
@@ -78,11 +105,32 @@ const ChooseField = () => {
         <Item>
           from
           <Box>
-            <StyledSpan>May 19</StyledSpan>
+            <StyledButton datePickerButton onClick={handleStartClick}>
+              {format(startDate, "dd-MM-yyyy")}
+            </StyledButton>
+            {isStartOpen && (
+              <DatePickerWrapper>
+                <DatePicker
+                  selected={startDate}
+                  onChange={handleStartChange}
+                  inline
+                />
+              </DatePickerWrapper>
+            )}
             <StyledSpan>-</StyledSpan>
-            <StyledSpan>May 20</StyledSpan>
-            {/* <Arrow onClick={toggleActive(activeCalendar, setActiveCalendar)} />
-            <Popup activeClass={activeCalendar}></Popup> */}
+            <StyledButton datePickerButton onClick={handleEndClick}>
+              {format(endDate, "dd-MM-yyyy")}
+            </StyledButton>
+            {isEndOpen && (
+              <DatePickerWrapper>
+                <DatePicker
+                  style={{ position: "fixed" }}
+                  selected={endDate}
+                  onChange={handleEndChange}
+                  inline
+                />
+              </DatePickerWrapper>
+            )}
           </Box>
         </Item>
         <Item>
