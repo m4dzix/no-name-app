@@ -1,14 +1,24 @@
 import { Container } from "./style.js";
 import Text from "../../Assets/Tukan_bay.png";
 import ChooseField from "../ChooseField";
+import { useDispatch } from "react-redux";
+import { hideAll } from "../ChooseField/counterSlice";
 
-const Background = () => (
-  <>
-    <Container>
-      <img src={Text} alt="logo" />
-    </Container>
-    <ChooseField />
-  </>
-);
+const Background = () => {
+  const dispatch = useDispatch();
+
+  return (
+    <>
+      <Container
+        onClick={() => {
+          dispatch(hideAll());
+        }}
+      >
+        <img src={Text} alt="logo" />
+      </Container>
+      <ChooseField />
+    </>
+  );
+};
 
 export default Background;

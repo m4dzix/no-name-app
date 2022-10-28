@@ -38,6 +38,11 @@ const counterSlice = createSlice({
     toggleHideChildField: (state) => {
       state.hideChildField = !state.hideChildField;
     },
+    hideAll: (state, initialState) => {
+      state.hideRoomField = initialState.hideRoomField;
+      state.hideAdultField = initialState.hideAdultField;
+      state.hideChildField = initialState.hideChildField;
+    },
   },
 });
 
@@ -51,6 +56,7 @@ export const {
   incrementChild,
   decrementChld,
   toggleHideChildField,
+  hideAll,
 } = counterSlice.actions;
 
 export const selectRoomValue = (state) => state.counter.roomValue;
