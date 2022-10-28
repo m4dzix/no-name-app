@@ -8,7 +8,7 @@ export const CheckInBox = styled.div`
   align-items: center;
   justify-content: center;
   position: absolute;
-  width: 65%;
+  width: 870px;
   height: 100px;
   background-color: #0007;
   z-index: 1;
@@ -17,6 +17,9 @@ export const CheckInBox = styled.div`
   left: 50%;
   transform: translateX(-50%);
   padding: 10px;
+  @media (max-width: 900px) {
+    display: none;
+  }
 `;
 export const Text = styled.p`
   font-family: "Crimson Text", serif;
@@ -46,7 +49,6 @@ export const Box = styled.div`
   flex-direction: row;
   color: white;
   margin: 0 3px;
-  padding-bottom: 3px;
   position: relative;
 `;
 export const StyledSpan = styled.span`

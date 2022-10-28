@@ -10,11 +10,12 @@ export const Container = styled.div`
   background-repeat: no-repeat;
   z-index: -1;
   text-align: center;
+  @media (max-width: 750px) {
+    height: 50vh;
+  }
 `;
-export const ClosePopup = styled.button`
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+export const Image = styled.img`
+  @media (max-width: 750px) {
+    display: none;
+  }
 `;

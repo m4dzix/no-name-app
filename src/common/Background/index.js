@@ -1,4 +1,4 @@
-import { Container } from "./style.js";
+import { Container, Image } from "./style.js";
 import Text from "../../Assets/Tukan_bay.png";
 import ChooseField from "../ChooseField";
 import { useDispatch } from "react-redux";
@@ -14,7 +14,7 @@ const Background = () => {
           dispatch(hideAll());
         }}
       >
-        <img src={Text} alt="logo" />
+        <Image src={Text} alt="logo" />
       </Container>
       <ChooseField />
     </>
