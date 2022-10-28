@@ -3,6 +3,10 @@ import { KeyboardArrowDown } from "@styled-icons/material-outlined";
 import { Plus, Minus } from "@styled-icons/feather";
 
 export const CheckInBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   width: 65%;
   height: 100px;
@@ -21,6 +25,7 @@ export const Text = styled.p`
   color: white;
   text-shadow: 1px 1px black;
   margin: 0;
+  align-self: start;
 `;
 export const List = styled.ul`
   display: grid;
@@ -42,7 +47,6 @@ export const Box = styled.div`
   color: white;
   margin: 0 3px;
   padding-bottom: 3px;
-  border-bottom: 2px dotted white;
   position: relative;
 `;
 export const StyledSpan = styled.span`
@@ -78,7 +82,6 @@ export const StyledButton = styled.button`
       font-weight: 400;
     `}
 `;
-
 export const Popup = styled.div`
   display: flex;
   justify-content: center;
@@ -127,7 +130,6 @@ export const CounterButton = styled.button`
   border: 1px solid white;
   padding: 5px;
 `;
-
 export const StyledCounter = css`
   width: 20px;
   height: 20px;

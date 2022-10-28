@@ -103,7 +103,6 @@ const ChooseField = () => {
           </Box>
         </Item>
         <Item>
-          from
           <Box>
             <StyledButton datePickerButton onClick={handleStartClick}>
               {format(startDate, "dd-MM-yyyy")}
@@ -162,7 +161,6 @@ const ChooseField = () => {
               </CounterButton>
             </Popup>
           </Box>
-          <StyledSpan>•</StyledSpan>
           <Box>
             <StyledSpan>{childValue}</StyledSpan>
             {childValue <= 1 ? "Children" : "Childrens"}
