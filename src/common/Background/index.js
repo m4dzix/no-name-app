@@ -1,5 +1,5 @@
 import { Container, Image } from "./style.js";
-import Text from "../../Assets/Tukan_bay.png";
+import Text from "../../Assets/tukan_bay.png";
 import ChooseField from "../ChooseField";
 import { useDispatch } from "react-redux";
 import { hideAll } from "../ChooseField/counterSlice";
